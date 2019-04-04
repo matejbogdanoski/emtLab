@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Product details</title>
+</head>
+<body>
+    <h3 th:text="${name}"></h3>
+    <img th:src="${imgUrl}" width="100px" height="100px">
+    <div>
+        Description: <span th:text="${desc}"></span>
+    </div>
+    <div>
+        Category: <span th:text="${category}"></span>
+    </div>
+    <div>
+        Manufacturer: <span th:text="${man}"></span>
+    </div>
+</body>
+</html>

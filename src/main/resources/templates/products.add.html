@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a product</title>
+</head>
+<body>
+<form method="post" action="/products/add">
+    <div>
+        <label for="productName">Product name:</label>
+        <input type="text" id="productName" name="name" placeholder="Enter name" required><br>
+    </div>
+    <div>
+        <label for="productDesc">Product description:</label>
+        <input type="text" id="productDesc" name="desc" placeholder="Enter desc" required><br>
+    </div>
+    <div>
+        <label for="productImg">Product imgUrl:</label>
+        <input type="text" id="productImg" name="img" placeholder="Enter imgUrl" required><br>
+    </div>
+    <div>
+        <label>Product category:</label>
+        <select name="categoryId">
+            <option th:each="c : ${categoryList}" th:value="${c.id}" th:text="${c.name}"></option>
+        </select>
+    </div>
+    <div>
+        <label>Product manufacturer:</label>
+        <select name="manId">
+            <option th:each="m : ${manList}" th:value="${m.id}" th:text="${m.name}"></option>
+        </select>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
