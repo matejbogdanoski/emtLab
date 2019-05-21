@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ManufacturerService {
     List<Manufacturer> getAll();
+    Manufacturer getManufacturerById(Long id);
 }

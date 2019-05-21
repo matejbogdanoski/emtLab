@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/products")
@@ -34,15 +33,15 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public String productDetails(@PathVariable("id") Integer id,Model model){
-        System.out.println("in product details");
+    public String productDetails(@PathVariable("id") Long id,Model model){
         Product p = productService.getById(id);
 
         model.addAttribute("name",p.name);
         model.addAttribute("desc",p.desc);
         model.addAttribute("imgUrl",p.imgUrl);
-        model.addAttribute("category",p.category.name);
-        model.addAttribute("man",p.manufacturer.name);
+        model.addAttribute("price",p.price);
+        model.addAttribute("category",p.categories.get(0).name);
+        model.addAttribute("man",p.manufacturers.get(0).name);
 
         return "product.details";
     }
@@ -57,7 +56,7 @@ public class ProductController {
     @PostMapping("/add")
     public String addProduct(HttpServletRequest request, Model model){
         productService.addNewProduct(request.getParameter("name"),request.getParameter("desc"),
-                request.getParameter("img"),Long.parseLong(request.getParameter("manId")),
+                request.getParameter("img"),Integer.parseInt(request.getParameter("price")),Long.parseLong(request.getParameter("manId")),
                 Long.parseLong(request.getParameter("categoryId")));
         return "redirect:/products/";
     }

@@ -19,6 +19,10 @@
         <input type="text" id="productImg" name="img" placeholder="Enter imgUrl" required><br>
     </div>
     <div>
+        <label for="productPrice">Product price:</label>
+        <input type="text" id="productPrice" name="price" placeholder="Enter price" required><br>
+    </div>
+    <div>
         <label>Product category:</label>
         <select name="categoryId">
             <option th:each="c : ${categoryList}" th:value="${c.id}" th:text="${c.name}"></option>

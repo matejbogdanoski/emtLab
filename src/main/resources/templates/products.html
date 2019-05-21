@@ -7,7 +7,7 @@
 <body>
     <h3>Products:</h3>
     <ul th:each="p : ${productsList}">
-        <a th:href="@{'/products/' + ${p.id}}"><li th:text="'id: ' + ${p.id} + ' name: ' + ${p.name}"></li></a>
+        <a th:href="@{'/products/' + ${p.id}}"><li th:text="'id: ' + ${p.id} + ' name: ' + ${p.name} + ' price: ' + ${p.price}"></li></a>
     </ul>
 <a href="/products/add"> ADD A PRODUCT</a>
 </body>
