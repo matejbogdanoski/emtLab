@@ -42,6 +42,10 @@ public class ProductController {
         model.addAttribute("price",p.price);
         model.addAttribute("category",p.categories.get(0).name);
         model.addAttribute("man",p.manufacturers.get(0).name);
+        model.addAttribute("amount", p.price * 100); // in cents
+        String stripePublicKey = "public_key_here";
+        model.addAttribute("stripePublicKey", stripePublicKey);
+        model.addAttribute("currency", ChargeRequest.Currency.EUR);
 
         return "product.details";
     }

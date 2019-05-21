@@ -17,5 +17,22 @@
     <div>
         Manufacturer: <span th:text="${man}"></span>
     </div>
+    <form action='/charge' method='POST' id='checkout-form'>
+        <input type='hidden' th:value='${amount}' name='amount' />
+        <!-- NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf -->
+        <script
+                src='https://checkout.stripe.com/checkout.js'
+                class='stripe-button'
+                th:attr='data-key=${stripePublicKey},
+         data-amount=${amount},
+         data-currency=${currency}'
+                data-name='Sports shop'
+                data-description='Buy product'
+                data-image
+                        ='https://cdn1.vectorstock.com/i/1000x1000/75/60/logo-sport-shop-vector-5857560.jpg'
+                data-locale='auto'
+                data-zip-code='false'>
+        </script>
+    </form>
 </body>
 </html>
